@@ -1,0 +1,575 @@
+/* ==================== VARIABLES CSS ==================== */
+:root {
+    /* Couleurs */
+    --gold-color: #C9B037; 
+    --gold-gradient: linear-gradient(180deg, #D4AF37, #C9B037);
+    --gold-glow: 0 0 8px rgba(201, 176, 55, 0.4);
+
+    --dark-color: #121212;
+    --body-color: #000000;
+    --text-color: #FFFFFF;
+    --container-color: #1C1C1C;
+
+    /* Polices et typographie */
+    --body-font: 'Montserrat', sans-serif;
+    --title-font: 'Playfair Display', serif;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+
+    /* Poids de la police */
+    --font-bold: 700;
+}
+
+/* ==================== BASE ==================== */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    color: var(--text-color);
+    font-weight: var(--font-bold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==================== CLASSES RÉUTILISABLES ==================== */
+.section {
+    padding: 6rem 0 2rem;
+}
+
+.section__title {
+    font-size: var(--h2-font-size);
+    font-family: var(--title-font);
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--gold-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: var(--gold-glow);
+}
+
+.container {
+    max-width: 968px;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* ==================== BOUTONS ==================== */
+.button {
+    display: inline-block;
+    background-image: var(--gold-gradient);
+    color: var(--dark-color);
+    padding: 1rem 1.75rem;
+    font-weight: var(--font-bold);
+    transition: .3s;
+    border: 2px solid var(--gold-color);
+}
+
+.button:hover {
+    background-image: none;
+    background-color: transparent;
+    color: var(--gold-color);
+    box-shadow: 0 0 10px rgba(201, 176, 55, 0.5);
+}
+
+.button--header {
+    padding: 0.8rem 1.5rem;
+}
+
+/* ==================== HEADER & NAV ==================== */
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201, 176, 55, 0.2);
+}
+
+.nav {
+    height: 4.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    color: var(--gold-color);
+    font-weight: var(--font-bold);
+    font-family: var(--title-font);
+    font-size: 1.5rem;
+    text-shadow: var(--gold-glow);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.nav__logo:hover {
+    transform: scale(1.05);
+}
+
+.nav__logo-img {
+    display: none;
+}
+
+.nav__list {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center; /* Aligne le bouton Contact verticalement */
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__link {
+    color: var(--text-color);
+    transition: color .3s ease-out;
+    padding-bottom: 0.5rem;
+}
+
+.nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--gold-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-out;
+}
+
+.nav__link:hover {
+    color: var(--gold-color);
+}
+
+.nav__link:hover::after,
+.nav__link.active-link::after {
+    transform: scaleX(1);
+}
+
+/* Style pour le bouton "Contact" dans la nav */
+.nav__link--cta {
+    background-color: var(--gold-color);
+    color: var(--dark-color) !important;
+    padding: 0.5rem 1.25rem !important; /* Padding ajusté */
+    border-radius: 4px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav__link--cta::after {
+    display: none; /* Pas de soulignement pour le bouton */
+}
+
+.nav__link--cta:hover {
+    background-color: transparent;
+    color: var(--gold-color) !important;
+    border-color: var(--gold-color);
+}
+
+.nav__link.active-link {
+    color: var(--gold-color);
+}
+
+/* ==================== ACCUEIL (HERO) ==================== */
+.home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url('../image/accueil.png') no-repeat center center/cover;
+    position: relative;
+}
+
+.home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.home__container {
+    position: relative;
+    z-index: 2;
+}
+
+.home__content {
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.home__title {
+    font-size: var(--h1-font-size);
+    font-family: var(--title-font);
+    color: var(--gold-color);
+    margin-bottom: 1rem;
+    text-shadow: var(--gold-glow);
+}
+
+.home__description {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* ==================== À PROPOS ==================== */
+.about__container {
+    align-items: center;
+}
+
+.about__data {
+    text-align: center;
+}
+
+.about__description {
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.about__details {
+    text-align: left;
+    display: inline-block;
+}
+
+.about__details-item {
+    margin-bottom: 1rem;
+}
+
+.about__details-item i {
+    color: var(--gold-color);
+    margin-right: 0.5rem;
+}
+
+.about__img {
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* ==================== SERVICES ==================== */
+.services {
+    background-color: var(--dark-color);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.service__card {
+    background-color: var(--container-color);
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border: 1px solid #333;
+    transition: .3s;
+}
+
+.service__card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold-color);
+    box-shadow: 0 0 15px rgba(201, 176, 55, 0.2);
+}
+
+.service__title {
+    font-size: var(--h3-font-size);
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.service__description {
+    margin-bottom: 1.5rem;
+    min-height: 60px;
+}
+
+.service__price {
+    font-size: var(--h2-font-size);
+    font-family: var(--title-font);
+    color: var(--gold-color);
+    text-shadow: var(--gold-glow);
+}
+
+/* ==================== GALERIE ==================== */
+.gallery__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.gallery__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .3s;
+}
+
+.gallery__img:hover {
+    transform: scale(1.05);
+}
+
+/* ==================== AVIS (TÉMOIGNAGES) ==================== */
+.testimonial__card {
+    background-color: var(--container-color);
+    padding: 2rem 1.5rem;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    transition: .3s;
+}
+
+.testimonial__card:hover {
+    transform: translateY(-10px);
+    border-color: var(--gold-color);
+    box-shadow: 0 0 15px rgba(201, 176, 55, 0.2);
+}
+
+.testimonial__name {
+    font-size: 1.1rem;
+    font-weight: var(--font-bold);
+    margin-bottom: 0.5rem;
+}
+
+.testimonial__stars {
+    color: var(--gold-color);
+    margin-bottom: 1.5rem;
+}
+
+.testimonial__description {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.testimonial__date {
+    font-size: 0.8rem;
+    color: #888;
+    text-align: right;
+    margin-top: auto;
+}
+
+/* ==================== CONTACT ==================== */
+.contact__container {
+    row-gap: 3rem;
+}
+
+.contact__info h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    font-size: var(--h3-font-size);
+}
+.contact__info h3:first-of-type {
+    margin-top: 0;
+}
+
+.contact__info p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* NOUVEAU : Styles pour le lien du numéro de téléphone */
+.contact__info p a {
+    color: inherit; /* Le lien garde la couleur du texte parent */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact__info p a:hover {
+    color: var(--gold-color); /* Le lien devient doré au survol */
+}
+
+.contact__info i {
+    color: var(--gold-color);
+    margin-right: 0.75rem;
+    width: 20px;
+}
+
+.contact__socials a {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-right: 1.5rem;
+    transition: .3s;
+}
+
+.contact__socials a:hover {
+    color: var(--gold-color);
+}
+
+.contact__map {
+    height: 300px;
+}
+
+.contact__map iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5rem;
+}
+
+
+
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background-color: var(--dark-color);
+    padding: 2rem 0;
+    text-align: center;
+    color: #888;
+}
+
+/* ==================== PRÉ-CHARGEUR (PRELOADER) ==================== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--body-color);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease-out, visibility 1s ease-out; /* Durée de disparition plus longue */
+}
+
+.preloader--hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader__text {
+    font-family: var(--title-font);
+    font-size: clamp(2rem, 10vw, 4rem); /* Taille responsive */
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    
+    /* Technique pour l'effet "shine" */
+    background: linear-gradient(90deg, 
+        rgba(201, 176, 55, 0.4) 0%, 
+        #FFFFFF 50%, 
+        rgba(201, 176, 55, 0.4) 100%);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    animation: shine 2.5s linear infinite;
+}
+
+/* Animation de balayage lumineux */
+@keyframes shine {
+    to {
+        background-position: -200% center;
+    }
+}
+
+
+/* ==================== MEDIA QUERIES (RESPONSIVE) ==================== */
+
+/* Styles pour mobile (jusqu'à 767px) */
+@media screen and (max-width: 767px) {
+    .nav__menu {
+        display: none;
+    }
+
+    .nav__logo-text {
+        display: none;
+    }
+
+    .nav__logo-img {
+        display: block;
+        height: 40px;
+        width: auto;
+    }
+
+    .contact__map {
+        height: 250px;
+    }
+}
+
+
+/* Styles pour tablette et plus grand (à partir de 768px) */
+@media screen and (min-width: 768px) {
+    .button--header {
+        display: none;
+    }
+
+    .about__container {
+        grid-template-columns: 1fr 1fr;
+        text-align: left;
+    }
+    
+    .about__data {
+        text-align: left;
+    }
+
+    .services__container,
+    .testimonials__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .contact__container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Styles pour écrans larges (à partir de 1024px) */
+@media screen and (min-width: 1024px) {
+    :root {
+        --h1-font-size: 4rem;
+        --h2-font-size: 2rem;
+        --h3-font-size: 1.5rem;
+    }
+
+    .container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .section {
+        padding: 8rem 0 4rem;
+    }
+    
+    .services__container,
+    .testimonials__container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
