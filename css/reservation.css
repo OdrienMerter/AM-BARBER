@@ -149,6 +149,25 @@ body {
     min-height: 120px;
 }
 
+/* ==================== CORRECTION POUR THÈME SOMBRE ==================== */
+
+/* Corrige les options du menu déroulant (texte blanc sur fond blanc) */
+.booking__select option {
+    background: var(--dark-color);
+    color: var(--text-color);
+}
+
+/* Corrige le style de l'autocomplétion des navigateurs (Chrome, Safari...) */
+.booking__input:-webkit-autofill,
+.booking__input:-webkit-autofill:hover,
+.booking__input:-webkit-autofill:focus,
+.booking__input:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--text-color) !important; /* Force la couleur du texte */
+    box-shadow: 0 0 0 30px var(--container-color) inset !important; /* Simule un fond sombre */
+    -webkit-box-shadow: 0 0 0 30px var(--container-color) inset !important;
+}
+
+
 .booking__submit {
     width: 100%;
     margin-top: 1.5rem;
