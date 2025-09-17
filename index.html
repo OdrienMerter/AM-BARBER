@@ -20,10 +20,6 @@
 </head>
 <body>
 
-    <div class="preloader">
-        <h1 class="preloader__text">AM BARBER</h1>
-    </div>
-
     <!-- ==================== HEADER ==================== -->
     <header class="header">
         <nav class="nav container">
@@ -38,6 +34,7 @@
                     <li class="nav__item"><a href="#accueil" class="nav__link">Accueil</a></li>
                     <li class="nav__item"><a href="#apropos" class="nav__link">Le Salon</a></li>
                     <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="reservation.html" class="nav__link">Réservation</a></li>
                     <li class="nav__item"><a href="#galerie" class="nav__link">Galerie</a></li>
                     <li class="nav__item"><a href="#avis" class="nav__link">Avis</a></li>
                     <li class="nav__item"><a href="#contact" class="nav__link nav__link--cta">Contact</a></li>
@@ -45,7 +42,7 @@
             </div>
 
             <!-- Bouton visible sur mobile -->
-            <a href="#contact" class="button button--header">Nous contacter</a>
+            <a href="reservation.html" class="button button--header">Réserver</a>
         </nav>
     </header>
 
@@ -58,7 +55,7 @@
                     <p class="home__description">
                         Là où le style rencontre la précision. Offrez-vous une expérience unique dans un cadre moderne et sophistiqué.
                     </p>
-                    <a href="#services" class="button">Découvrir nos services</a>
+                    <a href="reservation.html" class="button">Réserver maintenant</a>
                 </div>
             </div>
         </section>
@@ -136,7 +133,6 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="testimonial__description">"Un salon super propre et professionnel meilleur coiffeur dans la métropole lilloise ✅✅"</p>
-                    <span class="testimonial__date">il y a 3 mois</span>
                 </div>
                 <!-- Avis 2 -->
                 <div class="testimonial__card">
@@ -145,7 +141,6 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="testimonial__description">"Accueil au Top, équipe professionnelle, rien à dire et surtout très très très propre je recommande"</p>
-                    <span class="testimonial__date">Visité en janvier</span>
                 </div>
                 <!-- Avis 3 -->
                 <div class="testimonial__card">
@@ -154,7 +149,6 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="testimonial__description">"Coiffeur très professionnel, à l’écoute du client résultat garantie."</p>
-                    <span class="testimonial__date">Visité en octobre 2024</span>
                 </div>
                 <!-- Avis 4 -->
                 <div class="testimonial__card">
@@ -163,31 +157,40 @@
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="testimonial__description">"Meilleur salon, meilleur coiff personnel accueillant et professionnel."</p>
-                    <span class="testimonial__date">Visité en octobre 2024</span>
                 </div>
             </div>
         </section>
 
         <!-- ==================== CONTACT & RENDEZ-VOUS ==================== -->
         <section class="contact section" id="contact">
-            <h2 class="section__title">Prendre Rendez-vous</h2>
+            <h2 class="section__title">Nous Trouver et Contacter</h2>
             <div class="contact__container container grid">
                 <div class="contact__info">
-                    <h3>Contactez-nous</h3>
+                    <h3>Informations</h3>
                     <p><a href="https://www.google.com/maps/search/?api=1&query=12+Av.+Jean+Lebas,+59100+Roubaix" target="_blank"><i class="fa-solid fa-location-dot"></i> 12 Av. Jean Lebas, 59100 Roubaix</a></p>
-                    
-                    <!-- VOICI LA LIGNE MODIFIÉE -->
-                    <p><a href="tel:0955367634"><i class="fa-solid fa-phone"></i> 0955367634</a></p>
-                    
+                    <p><a href="tel:0955367634"><i class="fa-solid fa-phone"></i> 09 55 36 76 34</a></p>
                     <p><i class="fa-solid fa-clock"></i> Mar - Sam : 9h00 - 19h00</p>
                     
                     <h3>Suivez-nous</h3>
                     <div class="contact__socials">
                         <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
                     </div>
                 </div>
-        </section>
+                
+                <!-- BLOC DE LA CARTE GOOGLE MAPS AJOUTÉ ICI -->
+                <div class="contact__map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2528.47353912187!2d3.172080677134887!3d50.69429497164175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c328e70528248d%3A0x28f73a5f57371c6d!2s12%20Av.%20Jean%20Lebas%2C%2059100%20Roubaix!5e0!3m2!1sfr!2sfr!4v1694553255581!5m2!1sfr!2sfr" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                <!-- FIN DU BLOC DE LA CARTE -->
+
+            </div> <!-- Balise fermante pour .contact__container -->
+        </section> <!-- Balise fermante pour #contact -->
     </main>
 
     <!-- ==================== FOOTER ==================== -->
@@ -197,36 +200,29 @@
         </div>
     </footer>
 
-        <script>
-       
-            /* GESTION DU PRÉ-CHARGEUR */
-            const preloader = document.querySelector('.preloader');
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    preloader.classList.add('preloader--hidden');
-                }, 500); // MODIFIÉ : 2 secondes de délai
-            });
+    <script>
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav__menu a');
 
+        function scrollActive() {
+            const scrollY = window.pageYOffset;
 
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav__menu a');
+            sections.forEach(current => {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 58; // 58px = hauteur du header
+                let sectionId = current.getAttribute('id');
+                let link = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
 
-            function scrollActive() {
-                const scrollY = window.pageYOffset;
-
-                sections.forEach(current => {
-                    const sectionHeight = current.offsetHeight;
-                    const sectionTop = current.offsetTop - 58; // 58px = hauteur du header
-                    let sectionId = current.getAttribute('id');
-
+                if (link) { // Vérifie si le lien existe avant de manipuler ses classes
                     if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                        document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link');
+                        link.classList.add('active-link');
                     } else {
-                        document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link');
+                        link.classList.remove('active-link');
                     }
-                });
-            }
-            window.addEventListener('scroll', scrollActive);
+                }
+            });
+        }
+        window.addEventListener('scroll', scrollActive);
     </script>
 
 </body>

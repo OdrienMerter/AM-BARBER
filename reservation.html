@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation - AM BARBER Roubaix</title>
+    
+    <!-- Lien vers la nouvelle feuille de style CSS -->
+    <link rel="stylesheet" href="css/reservation.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ==================== CONTENU DE LA PAGE DE RÉSERVATION ==================== -->
+    <main class="booking-page">
+        <div class="booking__container">
+            <div class="booking__header">
+                <a href="index.html" class="back-link">&larr; Retour au site</a>
+                <h1 class="section__title">Réservez votre rendez-vous</h1>
+            </div>
+            
+            <form class="booking__form" id="bookingForm">
+                <div class="booking__grid">
+                    <div class="booking__group">
+                        <label for="firstName" class="booking__label">Prénom *</label>
+                        <input type="text" id="firstName" name="firstName" class="booking__input" required>
+                    </div>
+                    
+                    <div class="booking__group">
+                        <label for="lastName" class="booking__label">Nom *</label>
+                        <input type="text" id="lastName" name="lastName" class="booking__input" required>
+                    </div>
+                    
+                    <div class="booking__group">
+                        <label for="phone" class="booking__label">Téléphone *</label>
+                        <input type="tel" id="phone" name="phone" class="booking__input" required>
+                    </div>
+                    
+                    <div class="booking__group">
+                        <label for="email" class="booking__label">Email</label>
+                        <input type="email" id="email" name="email" class="booking__input">
+                    </div>
+                    
+                    <div class="booking__group">
+                        <label for="service" class="booking__label">Service souhaité *</label>
+                        <select id="service" name="service" class="booking__select" required>
+                            <option value="">Choisir un service</option>
+                            <option value="coupe-homme">Coupe Homme - 30€</option>
+                            <option value="taille-barbe">Taille de Barbe - 20€</option>
+                            <option value="forfait-coupe-barbe">Forfait Coupe & Barbe - 45€</option>
+                            <option value="coupe-enfant">Coupe Enfant (-12 ans) - 25€</option>
+                        </select>
+                    </div>
+                    
+                    <div class="booking__group">
+                        <label for="date" class="booking__label">Date souhaitée *</label>
+                        <input type="date" id="date" name="date" class="booking__input" required>
+                    </div>
+                    
+                    <div class="booking__group">
+                        <label for="time" class="booking__label">Heure préférée *</label>
+                        <select id="time" name="time" class="booking__select" required>
+                            <option value="">Choisir un créneau</option>
+                            <option value="09:00">09h00</option>
+                            <option value="09:30">09h30</option>
+                            <option value="10:00">10h00</option>
+                            <option value="10:30">10h30</option>
+                            <option value="11:00">11h00</option>
+                            <option value="11:30">11h30</option>
+                            <option value="12:00">12h00</option>
+                            <option value="12:30">12h30</option>
+                            <option value="14:00">14h00</option>
+                            <option value="14:30">14h30</option>
+                            <option value="15:00">15h00</option>
+                            <option value="15:30">15h30</option>
+                            <option value="16:00">16h00</option>
+                            <option value="16:30">16h30</option>
+                            <option value="17:00">17h00</option>
+                            <option value="17:30">17h30</option>
+                            <option value="18:00">18h00</option>
+                            <option value="18:30">18h30</option>
+                        </select>
+                    </div>
+                    
+                    <div class="booking__group">
+                        <label for="barber" class="booking__label">Barbier préféré</label>
+                        <select id="barber" name="barber" class="booking__select">
+                            <option value="">Pas de préférence</option>
+                            <option value="amine">Amine</option>
+                            <option value="mehdi">Mehdi</option>
+                            <option value="karim">Karim</option>
+                        </select>
+                    </div>
+                    
+                    <div class="booking__group booking__group--full">
+                        <label for="message" class="booking__label">Message (optionnel)</label>
+                        <textarea id="message" name="message" class="booking__textarea" placeholder="Précisez vos souhaits ou demandes particulières..."></textarea>
+                    </div>
+                </div>
+                
+                <button type="submit" class="button booking__submit">
+                    <i class="fa-solid fa-calendar-check"></i> Confirmer la réservation
+                </button>
+            </form>
+            
+            <div class="booking__info">
+                <h4><i class="fa-solid fa-info-circle"></i> Informations importantes</h4>
+                <p><strong>Confirmation :</strong> Vous recevrez un SMS/Email de confirmation sous 24h.</p>
+                <p><strong>Annulation :</strong> Merci de nous prévenir au moins 2h à l'avance.</p>
+                <p><strong>Contact :</strong> <a href="tel:0955367634">09 55 36 76 34</a> pour toute question.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== MODAL DE CONFIRMATION ==================== -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal__content">
+            <button class="modal__close" id="modalClose">&times;</button>
+            <h3 class="modal__title"><i class="fa-solid fa-check-circle"></i> Demande envoyée !</h3>
+            <p class="modal__text">
+                Merci, votre demande a bien été prise en compte.<br>
+                Nous vous confirmerons le rendez-vous par SMS sous 24h.
+            </p>
+            <button class="button" onclick="closeModal()">Parfait !</button>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ==================== SYSTÈME DE RÉSERVATION ==================== 
+        
+        // Configuration des dates disponibles
+        function setMinDate() {
+            const today = new Date();
+            const tomorrow = new Date(today);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            
+            const dateInput = document.getElementById('date');
+            if (dateInput) {
+                dateInput.min = tomorrow.toISOString().split('T')[0];
+                const maxDate = new Date(today);
+                maxDate.setMonth(maxDate.getMonth() + 3);
+                dateInput.max = maxDate.toISOString().split('T')[0];
+            }
+        }
+
+        // Désactiver les dimanches et lundis
+        function validateDate() {
+            const dateInput = document.getElementById('date');
+            const selectedDate = new Date(dateInput.value);
+            const dayOfWeek = selectedDate.getUTCDay(); // Utiliser getUTCDay pour éviter les pbs de fuseaux horaires
+            
+            if (dayOfWeek === 0 || dayOfWeek === 1) { // Dimanche (0) ou Lundi (1)
+                alert('Nous sommes fermés le dimanche et le lundi. Merci de choisir une autre date.');
+                dateInput.value = '';
+                return false;
+            }
+            return true;
+        }
+
+        // Gestion du formulaire de réservation
+        const bookingForm = document.getElementById('bookingForm');
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateDate()) return;
+                
+                const formData = new FormData(this);
+                const bookingData = Object.fromEntries(formData);
+                
+                console.log('Données de réservation:', bookingData);
+                
+                showModal();
+                this.reset();
+            });
+        }
+
+        // Fonctions pour la modal
+        function showModal() {
+            document.getElementById('confirmationModal')?.classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('confirmationModal')?.classList.remove('show');
+        }
+
+        // Écouteurs d'événements
+        document.addEventListener('DOMContentLoaded', function() {
+            setMinDate();
+            
+            const dateInput = document.getElementById('date');
+            if(dateInput) dateInput.addEventListener('change', validateDate);
+
+            document.getElementById('modalClose')?.addEventListener('click', closeModal);
+            document.getElementById('confirmationModal')?.addEventListener('click', function(e) {
+                if (e.target === this) closeModal();
+            });
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeModal();
+            });
+        });
+    </script>
+</body>
+</html>

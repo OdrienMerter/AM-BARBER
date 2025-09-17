@@ -451,44 +451,6 @@ img {
     color: #888;
 }
 
-/* ==================== PRÉ-CHARGEUR (PRELOADER) ==================== */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--body-color);
-    z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 1s ease-out, visibility 1s ease-out; /* Durée de disparition plus longue */
-}
-
-.preloader--hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.preloader__text {
-    font-family: var(--title-font);
-    font-size: clamp(2rem, 10vw, 4rem); /* Taille responsive */
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    
-    /* Technique pour l'effet "shine" */
-    background: linear-gradient(90deg, 
-        rgba(201, 176, 55, 0.4) 0%, 
-        #FFFFFF 50%, 
-        rgba(201, 176, 55, 0.4) 100%);
-    background-size: 200% auto;
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    animation: shine 2.5s linear infinite;
-}
 
 /* Animation de balayage lumineux */
 @keyframes shine {
