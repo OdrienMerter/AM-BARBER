@@ -50,12 +50,29 @@
 
     <footer class="footer"><div class="footer__container container grid"><div class="footer__brand"><a href="#" class="nav__logo">AM BARBER</a><p>L'Élégance au Masculin.</p></div><div class="footer__links"><h4>Navigation</h4><ul><li><a href="#apropos">Le Salon</a></li><li><a href="#services">Services</a></li><li><a href="#galerie">Galerie</a></li></ul></div><div class="footer__contact"><h4>Contact</h4><p>12 Av. Jean Lebas<br>59100 Roubaix</p><div class="contact__socials"><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a><a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a><a href="#" target="_blank"><i class="fa-brands fa-tiktok"></i></a></div></div></div><div class="footer__copy"><p>&copy; 2025 AM BARBER. Tous droits réservés.</p></div></footer>
 
-    <script>
+<script>
         const navMenu = document.getElementById('nav-menu');
         const navToggle = document.getElementById('nav-toggle');
         const navClose = document.getElementById('nav-close');
-        if (navToggle) { navToggle.addEventListener('click', () => { navMenu.classList.add('show-menu'); }); }
-        if (navClose) { navClose.addEventListener('click', () => { navMenu.classList.remove('show-menu'); }); }
+
+        /* Affiche le menu */
+        if (navToggle) { 
+            navToggle.addEventListener('click', () => { 
+                navMenu.classList.add('show-menu'); 
+            }); 
+        }
+
+        /* Cache le menu (avec le bouton X) */
+        if (navClose) { 
+            navClose.addEventListener('click', () => { 
+                navMenu.classList.remove('show-menu'); 
+            }); 
+        }
+        const navLinks = document.querySelectorAll('.nav__link');
+        function linkAction() {
+            navMenu.classList.remove('show-menu');
+        }
+        navLinks.forEach(n => n.addEventListener('click', linkAction));
     </script>
 </body>
 </html>
