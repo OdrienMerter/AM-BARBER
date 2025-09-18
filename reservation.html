@@ -26,7 +26,7 @@
                 <h1 class="section__title">Réservez votre rendez-vous</h1>
             </div>
             
-            <form class="booking__form" id="bookingForm">
+            <form class="booking__form" id="bookingForm" action="https://formspree.io/f/xvgbeork" method="post">
                 <div class="booking__grid">
                     <div class="booking__group">
                         <label for="firstName" class="booking__label">Prénom *</label>
@@ -136,76 +136,61 @@
     <script>
         // ==================== SYSTÈME DE RÉSERVATION ==================== 
         
-        // Configuration des dates disponibles
+        /**
+         * Configure le champ de date pour n'autoriser que les réservations 
+         * à partir de demain et jusqu'à 3 mois dans le futur.
+         */
         function setMinDate() {
+            const dateInput = document.getElementById('date');
+            if (!dateInput) return;
+
             const today = new Date();
             const tomorrow = new Date(today);
             tomorrow.setDate(tomorrow.getDate() + 1);
             
-            const dateInput = document.getElementById('date');
-            if (dateInput) {
-                dateInput.min = tomorrow.toISOString().split('T')[0];
-                const maxDate = new Date(today);
-                maxDate.setMonth(maxDate.getMonth() + 3);
-                dateInput.max = maxDate.toISOString().split('T')[0];
-            }
+            // Définit la date minimale à demain
+            dateInput.min = tomorrow.toISOString().split('T')[0];
+
+            // Définit la date maximale à 3 mois
+            const maxDate = new Date(today);
+            maxDate.setMonth(maxDate.getMonth() + 3);
+            dateInput.max = maxDate.toISOString().split('T')[0];
         }
 
-        // Désactiver les dimanches et lundis
+        /**
+         * Valide la date choisie dès que l'utilisateur la change.
+         * Empêche la sélection des dimanches et lundis.
+         */
         function validateDate() {
             const dateInput = document.getElementById('date');
+            // Si aucune date n'est sélectionnée, on ne fait rien
+            if (!dateInput || !dateInput.value) return true;
+
+            // Utilise getUTCDay() pour éviter les problèmes de fuseau horaire
             const selectedDate = new Date(dateInput.value);
-            const dayOfWeek = selectedDate.getUTCDay(); // Utiliser getUTCDay pour éviter les pbs de fuseaux horaires
+            const dayOfWeek = selectedDate.getUTCDay(); 
             
-            if (dayOfWeek === 0 || dayOfWeek === 1) { // Dimanche (0) ou Lundi (1)
+            // 0 = Dimanche, 1 = Lundi
+            if (dayOfWeek === 0 || dayOfWeek === 1) { 
                 alert('Nous sommes fermés le dimanche et le lundi. Merci de choisir une autre date.');
-                dateInput.value = '';
+                dateInput.value = ''; // Réinitialise le champ
                 return false;
             }
             return true;
         }
 
-        // Gestion du formulaire de réservation
-        const bookingForm = document.getElementById('bookingForm');
-        if (bookingForm) {
-            bookingForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (!validateDate()) return;
-                
-                const formData = new FormData(this);
-                const bookingData = Object.fromEntries(formData);
-                
-                console.log('Données de réservation:', bookingData);
-                
-                showModal();
-                this.reset();
-            });
-        }
-
-        // Fonctions pour la modal
-        function showModal() {
-            document.getElementById('confirmationModal')?.classList.add('show');
-        }
-
-        function closeModal() {
-            document.getElementById('confirmationModal')?.classList.remove('show');
-        }
-
-        // Écouteurs d'événements
+        /**
+         * Écouteur d'événement principal qui se lance une fois la page chargée.
+         */
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialise les contraintes de date
             setMinDate();
             
+            // Ajoute la validation en direct sur le champ de date
             const dateInput = document.getElementById('date');
-            if(dateInput) dateInput.addEventListener('change', validateDate);
-
-            document.getElementById('modalClose')?.addEventListener('click', closeModal);
-            document.getElementById('confirmationModal')?.addEventListener('click', function(e) {
-                if (e.target === this) closeModal();
-            });
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') closeModal();
-            });
+            if(dateInput) {
+                dateInput.addEventListener('change', validateDate);
+            }
         });
     </script>
 </body>

@@ -37,10 +37,7 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; } img { max-
     left: 0;
     width: 100%;
     height: auto;
-    
-    /* MODIFIÉ : Fond solide et opaque pour une lisibilité parfaite */
     background-color: var(--dark-color);
-    
     padding: 1rem 2rem 2rem;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
@@ -92,11 +89,13 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; } img { max-
 .service__price { font-size: var(--h2-font-size); font-family: var(--title-font); color: var(--gold-color); }
 
 /* ==================== GALERIE ==================== */
-.gallery__container { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.gallery__container {
+    grid-template-columns: 1fr; /* MODIFIÉ : 1 seule colonne sur mobile par défaut */
+    gap: 1rem;
+}
 .gallery__img {
     width: 100%;
-    /* MODIFIÉ : Retour au style original pour un effet désordonné */
-    height: 100%; 
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     transition: transform .3s;
 }
@@ -122,11 +121,20 @@ ul { list-style: none; } a { text-decoration: none; color: inherit; } img { max-
 .footer ul a:hover { color: var(--gold-color); }
 .footer__copy { text-align: center; padding-top: 2rem; border-top: 1px solid #333; font-size: 0.9rem; }
 
+/* ==================== RESPONSIVE ==================== */
+@media screen and (min-width: 500px) {
+    .gallery__container {
+        grid-template-columns: repeat(2, 1fr); /* AJOUTÉ : Passage à 2 colonnes sur petits écrans */
+    }
+}
+
 @media screen and (min-width: 768px) {
     .about__container, .contact__container { grid-template-columns: 1fr 1fr; }
     .about__data { text-align: left; }
     .services__container, .testimonials__container { grid-template-columns: repeat(2, 1fr); }
-    .gallery__container { grid-template-columns: repeat(4, 1fr); }
+    .gallery__container {
+        grid-template-columns: repeat(3, 1fr); /* MODIFIÉ : 3 colonnes sur tablette et plus */
+    }
 }
 @media screen and (min-width: 1024px) {
     :root { --h1-font-size: 4rem; --h2-font-size: 2rem; --h3-font-size: 1.5rem; }
